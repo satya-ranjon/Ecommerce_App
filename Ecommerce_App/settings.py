@@ -95,16 +95,16 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Ecommace_App',
-#         'PORT':'3306',
-#         'PASSWORD':'',
-#         'USER':'root',
-#         'HOST':'localhost',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Ecommace_App',
+        'PORT':'3306',
+        'PASSWORD':'',
+        'USER':'root',
+        'HOST':'localhost',
+    }
+}
 
 
 # Password validation
