@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title_block %}
+   shop card
+{% endblock title_block %}
+{% block body_block %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" >#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scop="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for card in carts %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{card.item}}</td>
+        <td>
+            <a class="mr-2" href="{% url 'decrese' pk=card.item.pk %}"><span class="badge icon"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+              </svg> </span></a>
+            {{ card.quantity }}
+            <a class="mr-2" href="{% url 'increse' pk=card.item.pk %}"><span class="badge icon"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg> </span></a>
+        </td>
+        <td> &#2547 {{card.get_total}}</td>
+        <td><a href="{% url 'remove_card' pk=card.item.pk %}" class="btn btn-danger btn-sm">Remove</a></td>
+      </tr>
+    {% endfor %}
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td>Totol (TK)</td>
+        <td>&#2547 {{order.get_total | floatformat:2 }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="{% url 'shop' %}" class="btn btn-warning btn-sm">Continue Shoping</a>
+            </td>            
+            <td>
+                <a href="{% url 'chackout' %}" class="btn btn-success btn-sm">Checkout</a>
+            </td>
+          </tr>
+      </tr>
+    </tbody>
+  </table>
+{% endblock body_block %}

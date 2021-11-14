@@ -1,0 +1,108 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+<link href="{% static 'css/product_detiels.css' %}" rel="stylesheet">
+{% endblock style %}
+{% block body_block %}
+  
+<main class="container1">
+
+    <!-- Left Column / Headphones Image -->
+    <div id="product_img" class="left-column">
+        <img   data-image="red" class="active" src="/media/{{Product_detiels.minimage}}">
+
+        <img   data-image="black" src="/media/{{Product_detiels.img2}}">
+
+        <img   data-image="blue" src="/media/{{Product_detiels.img1}}">
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+            <span>{{Product_detiels.catagory}}</span>
+            <h1>{{Product_detiels.name}}</h1>
+            <p>{{Product_detiels.preview_text}}</p>
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+
+            <!-- Product Color -->
+            <!-- <div class="product-color">
+                <span>Color</span>
+
+                <div class="color-choose">
+                    <div>
+                        <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                        <label for="red"><span></span></label>
+                    </div>
+                    <div>
+                        <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                        <label for="blue"><span></span></label>
+                    </div>
+                    <div>
+                        <input data-image="black" type="radio" id="black" name="color" value="black">
+                        <label for="black"><span></span></label>
+                    </div>
+                </div>
+
+            </div> -->
+
+            <div class="product-color">
+                <span>More Images</span>
+
+                <div class="color-choose1">
+                    <div>
+                        <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                        <label for="red"><span>
+                                <img style="width: 45px;" data-image="red" src="/media/{{Product_detiels.minimage}}"
+                                    alt="eeee">
+                            </span></label>
+                    </div>
+
+                    <div>
+                        <input data-image="black" type="radio" id="black" name="color" value="black">
+                        <label for="black"><span>
+                                <img style="width: 45px;" data-image="black"
+                                    src="/media/{{Product_detiels.img2}}" alt="eeee">
+                            </span></label>
+                    </div>
+                    <div>
+                        <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                        <label for="blue"><span>
+                                <img style="width: 45px;" data-image="blue" src="/media/{{Product_detiels.img1}}"
+                                    alt="eeee">
+                            </span></label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Cable Configuration -->
+            <div class="cable-config">
+                <span>Cable configuration</span>
+
+                <div class="cable-choose">
+                    <button>Straight</button>
+                    <button>Coiled</button>
+                    <button>Long-coiled</button>
+                </div>
+
+                <a href="#">How to configurate your headphones</a>
+            </div>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+            <span>{{Product_detiels.price}}$</span>
+            <a href="{% url 'add' pk=Product_detiels.pk %}" class="cart-btn">Add to cart</a>
+        </div>
+    </div>
+</main>
+{% endblock body_block %}

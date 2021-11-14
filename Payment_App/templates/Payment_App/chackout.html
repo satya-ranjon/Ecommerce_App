@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% load card_tag %}
+{% load coustom_filter %}
+{% load crispy_forms_tags %}
+{% block title_block %} chack out {% endblock title_block %}
+
+{% block body_block %}
+
+<main>
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{% static 'img/logo.png' %}" alt="" width="250" height="80">
+        <h2>Checkout form</h2>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-6 col-lg-6 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your cart</span>
+                <span class="badge bg-primary rounded-pill">{{request.user | cart_total}}</span>
+            </h4>
+            <ul class="list-group mb-3 ">
+                {% for order_item in order_items %}
+
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">{{order_item.item.name | product_title}} </h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">= {{order_item.quantity}}X</span>
+                    <span class="text-muted">&#2547 {{order_item.get_total |floatformat:2 }}</span>
+                </li>
+                {% endfor %}
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (TK)</span>
+                    <strong>&#2547 {{order_total}}</strong>
+                </li>
+
+                {% if saved_address.is_fully_filled %}
+                    <a href="" class="btn btn-danger btn-sm mt-4">Make Payment</a>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <p>Please fill up all the information to make payment.</p>
+                        </div>
+                {% endif %}
+            </ul>
+
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <h4 class="mb-3">Billing address</h4>
+            <form class="" method="POST">
+                {{form|crispy}}
+                {% csrf_token %}
+                <input class="btn btn-outline-primary width-100" type="submit" value="Save Addres">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+{% endblock body_block %}

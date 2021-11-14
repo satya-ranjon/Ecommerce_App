@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.width-100 {
+    width: 100% !important;
+}
+
+.form_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+}
+
+.form {
+    width: 50%;
+}
+
+#alart {
+    width: 40% !important;
+    right: 10% !important;
+    display: flex !important;
+    justify-content: center !important;
+    position: absolute !important;
+    top: 8% !important;
+    z-index: 1;
+}
+
+.a {
+    font-size: 24px;
+    text-decoration: none;
+    margin-top: 30px;
+    border-top: 1px solid #ced4da;
+    display: block;
+}
+
+.logo {
+    width: 175px;
+}
+
+#card-img-top {
+    height: 240px;
+}
+
+.product_name {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.icon {
+    color: black;
+
+}
+
+.card {
+    height: 420px !important;
+    margin-bottom: 5vh !important;
+}
+.asteriskField{
+    display: none;
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title_block %} Change profile {{user}} {% endblock title_block %}
+
+{% block body_block %}
+  <div class="form_box">
+      <form class="form" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <input class="btn btn-warning width-100" type="submit" value="Save">
+      </form>
+      
+  </div>
+{% endblock body_block %}
