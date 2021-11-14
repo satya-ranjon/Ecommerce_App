@@ -88,23 +88,23 @@ WSGI_APPLICATION = 'Ecommerce_App.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Ecommace_App',
-        'PORT':'3306',
-        'PASSWORD':'',
-        'USER':'root',
-        'HOST':'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'Ecommace_App',
+#         'PORT':'3306',
+#         'PASSWORD':'',
+#         'USER':'root',
+#         'HOST':'localhost',
+#     }
+# }
 
 
 # Password validation
