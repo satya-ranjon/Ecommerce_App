@@ -32,7 +32,7 @@ class ProfileForm(ModelForm):
         all_clean_data = super().clean()
         user_phone = all_clean_data['phone']
         if len(user_phone) != 11 :
-            raise forms.ValidationError('আপনার ফোন নম্বর খুব ছোট')
+            raise forms.ValidationError('আপনার ফোন নম্বর সঠিক নয়')
     
     class Meta:
         model = Profile

@@ -92,10 +92,10 @@ class Profile(models.Model):
 
         for fields_name in fields_names:
             value = getattr(self, fields_name)
-            if value is None or value:
+            if value is None or value=='':
                 return False
         return True
-
+  
 
 
 @receiver(post_save,sender=User)

@@ -36,11 +36,7 @@
                 <!-- <i class="bi bi-person-circle"></i> -->
               </a>
               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink">
-                <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
-                <li><a class="dropdown-item" href="#">Inventory</a></li>
-                <li><a class="dropdown-item" href="#">Customers</a></li>
-                <li><a class="dropdown-item" href="#">Products</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'ord_his' %}">Order History</a></li>
                 <li><a class="dropdown-item" href="{% url 'user_ch_pro' %}">Change Profile</a></li>
                 <li><a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>

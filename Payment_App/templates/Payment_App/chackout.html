@@ -19,7 +19,7 @@
                 <span class="text-primary">Your cart</span>
                 <span class="badge bg-primary rounded-pill">{{request.user | cart_total}}</span>
             </h4>
-            <ul class="list-group mb-3 ">
+            <ul class="list-group mb-3 " id="overflow">
                 {% for order_item in order_items %}
 
                 <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -37,14 +37,15 @@
                     <strong>&#2547 {{order_total}}</strong>
                 </li>
 
-                {% if saved_address.is_fully_filled %}
-                    <a href="" class="btn btn-danger btn-sm mt-4">Make Payment</a>
-                    {% else %}
-                        <div class="alert alert-info">
-                            <p>Please fill up all the information to make payment.</p>
-                        </div>
-                {% endif %}
+
             </ul>
+            {% if saved_address.is_fully_filled %}
+            <a href="{% url 'payment' %}" class="btn btn-danger btn-sm width-100">Make Payment</a>
+            {% else %}
+                <div class="alert alert-info width-100">
+                    <p>Please fill up all the information to make payment.</p>
+                </div>
+            {% endif %}
 
         </div>
         <div class="col-md-6 col-lg-6">
@@ -57,13 +58,6 @@
         </div>
     </div>
 </main>
-
-
-
-
-
-
-
 
 
 {% endblock body_block %}

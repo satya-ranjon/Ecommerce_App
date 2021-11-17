@@ -23,6 +23,7 @@ class Products(admin.ModelAdmin):
         (None, {
             "fields": (
                 'minimage',
+                'more_img',
                 'img1',
                 'img2',
                 'img3',

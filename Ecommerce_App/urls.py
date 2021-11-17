@@ -7,6 +7,7 @@ from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Product_App.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     # path('user_accound/',include('User_App.urls')),
     path('accound/',include('User_App.urls')),
     path('order/',include('User_Order.urls')),
