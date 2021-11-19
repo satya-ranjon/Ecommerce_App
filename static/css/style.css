@@ -73,3 +73,7 @@ body {
     overflow: scroll;
     height: 340px;
 }
+.center{
+    text-align: center;
+    width: 100%;
+}

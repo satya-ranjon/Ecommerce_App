@@ -2,33 +2,65 @@
 {% load product_titel %}
 {% block title_block %}{{title}} {% endblock title_block %}
 {% block body_block %}
-  
+
 <div class="row">
 
-    {% for product in Product_list %}
-    <div class="col-md-3 col-sm-4">
-        <div class="card" style="width: 18rem;">
-            <img id="card-img-top" src="/media/{{product.minimage}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <a class="product_name"  href="{% url 'product_detiels' pk=product.pk %}">
-                    {{product.name|product_title}}
-                </a>
-                <hr>
-                
-                <a href="{% url 'add' pk=product.pk %}" class="btn btn-sm btn-outline-info">Add to cart</a>
+    {% if search %}
+        <h1 class="center">Your Search Items</h1>
+        {% for product in result %}
+            <div class="col-md-3 col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img id="card-img-top" src="/media/{{product.minimage}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a class="product_name" href="{% url 'product_detiels' pk=product.pk %}">
+                            {{product.name|product_title}}
+                        </a>
+                        <hr>
 
-                <div class="row">
-                    <div class="col-6">
-                        <i class="price">New Price ${{product.price}}</i>
-                    </div>
-                    <div class="col-6 price">
-                        <i>Old Price $<strike>{{product.old_price}}</strike></i> 
+                        <a href="{% url 'add' pk=product.pk %}" class="btn btn-sm btn-outline-info">Add to cart</a>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="price">New Price ${{product.price}}</i>
+                            </div>
+                            <div class="col-6 price">
+                                <i>Old Price $<strike>{{product.old_price}}</strike></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-          </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+        {% for product in Product_list %}
+            <div class="col-md-3 col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img id="card-img-top" src="/media/{{product.minimage}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a class="product_name" href="{% url 'product_detiels' pk=product.pk %}">
+                            {{product.name|product_title}}
+                        </a>
+                        <hr>
+
+                        <a href="{% url 'add' pk=product.pk %}" class="btn btn-sm btn-outline-info">Add to cart</a>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="price">New Price ${{product.price}}</i>
+                            </div>
+                            <div class="col-6 price">
+                                <i>Old Price $<strike>{{product.old_price}}</strike></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endif %}
+
+
 </div>
 
 
